@@ -8,8 +8,15 @@ class ApplicationContainer extends Model {
   constructor(){
     super();
 
+
+
     this.classNames = new Set();
-    this.elements = new Map(); // get/set map of elements stored in AC
+    this.nodes = new Map(); // get/set map of elements stored in AC
+
+  }
+
+  render(parent){
+    this.parent = parent;
 
   }
 
