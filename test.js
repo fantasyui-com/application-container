@@ -1,3 +1,5 @@
+const join = require('lodash/join');
+
 const ApplicationContainer = require('.');
 const BootstrapContainer = require('./class/bootstrap-container');
 const BootstrapContainerFluid = require('./class/bootstrap-container-fluid');
@@ -8,21 +10,22 @@ class BootstrapRow extends ApplicationContainer {
 
   constructor(){
     super();
-
     this.classNames.add('container-fluid')
 
   }
 
   createNodes(){
-    // if does not exist create
-    if(this.nodes.get('root')){
+
       const document = this.document;
-      const rootNode = document.createElement("div");
-      const bodyNode = document.createElement("div");
+
+      const rootNode = document.createElement("div").setAttribute("id", `uuid-${this.uuid}-root` );
+      const bodyNode = document.createElement("div").setAttribute("id", `uuid-${this.uuid}-root` );
+
       rootNode.appendChild(bodyNode);
+
       this.nodes.add('root', rootNode)
       this.nodes.add('body', bodyNode)
-    }
+
   }
 
   updateNodes(data){
@@ -35,6 +38,12 @@ class BootstrapRow extends ApplicationContainer {
       rootNode.appendChild(bodyNode);
       this.nodes.add('root', rootNode)
       this.nodes.add('body', bodyNode)
+
+
+      for (var [key, value] of myMap) {
+        console.log(key + ' = ' + value);
+      }
+
     }
   }
   destroyNodes(){

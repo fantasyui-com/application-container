@@ -1,25 +1,9 @@
-class Model {
-  createElement(name){
-  }
-}
+const Container = require('../container');
 
-class ApplicationContainer extends Model {
-
+class ApplicationContainer extends Container {
   constructor(){
     super();
-
-
-
-    this.classNames = new Set();
-    this.nodes = new Map(); // get/set map of elements stored in AC
-
   }
-
-  render(parent){
-    this.parent = parent;
-
-  }
-
 }
 
 module.exports = ApplicationContainer;
